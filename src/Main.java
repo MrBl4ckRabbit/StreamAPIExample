@@ -1,12 +1,13 @@
 import cats.Cat;
 import cats.CatListGenerator;
 import cats.VetBook;
+import shawarma.Shawarma;
+import shawarma.ShawarmaMaker;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -16,6 +17,7 @@ public class Main {
 
         /* Задачи с котиками */
         List<Cat> cats = new CatListGenerator().randomCats(1000);
+        List<Shawarma> shawarmas = new ShawarmaMaker().generateShawarma(50);
 //        cats.stream()
 //                .forEach(System.out::println);
 
@@ -147,36 +149,142 @@ public class Main {
 
         //TODO удалять из потока данных котов, пока не будет достигнут кот с определёнными условиями
 
+//      List<Cat>catList=  cats.stream()
+//                .dropWhile(x->!x.getName().equals("Боря") || x.getAge()==3)
+//                .toList();
+//
+//        catList.forEach(System.out::println);
+//        System.out.println((long) catList.size());
+
+
         //TODO подсчитать сколько котов родилось в период между двумя датами
+
+//        LocalDate start = LocalDate.of(2020, 5, 12);
+//        LocalDate end = LocalDate.now();
+//
+//        long count=cats.stream()
+//                .filter(cat->!cat.getBirthDate().isBefore(start) && !cat.getBirthDate().isAfter(end))
+//                .count();
+//        System.out.println(count);
+
 
         //TODO вывести котов рождённых в период между двумя датами
 
+//        LocalDate start = LocalDate.of(2020, 5, 12);
+//        LocalDate end = LocalDate.now();
+//
+//        List<Cat> catList = cats.stream()
+//                .filter(cat -> !cat.getBirthDate().isBefore(start) && !cat.getBirthDate().isAfter(end))
+//                .toList();
+//
+//        catList.forEach(System.out::println);
+//        System.out.println(catList.size());
+
         //TODO подсчитать средний возраст котов
 
+//        OptionalDouble age = cats.stream()
+//                .mapToInt(Cat::getAge)
+//                .average();
+//        System.out.println(age);
+
         //TODO подсчитать средний вес котов
+//
+//        OptionalDouble weight=cats.stream()
+//                .mapToInt(Cat::getWeight)
+//                .average();
+//
+//        System.out.println(weight);
 
         //TODO найти самого взрослого\маленького котика
 
+//        Optional<Cat> youngCat = cats.stream()
+//                .min(Comparator.comparing(Cat::getAge));
+//
+//        System.out.println(youngCat);
+//
+//        Optional<Cat> oldestCat = cats.stream().max(Comparator.comparing(Cat::getAge));
+//        System.out.println(oldestCat);
+
+
         //TODO найти котика, который родился в ближайшую от сегодняшней дату
+
+//        LocalDate now = LocalDate.now();
+//
+//        Optional<Cat> cat=cats.stream()
+//                .min(Comparator.comparing(cat1-> ChronoUnit.DAYS.between(cat1.getBirthDate(),now)));
+//        System.out.println(cat);
 
         //TODO найти котика, который родился ровно год назад
 
+//        LocalDate yearAgo = LocalDate.now().minusYears(2);
+//
+//        cats.stream()
+//                .filter(cat1->cat1.getBirthDate().equals(yearAgo))
+//                .forEach(System.out::println);
+
         //TODO всем котам обновить дату вакцинации
+
+//        List<Cat> catList = cats.stream()
+//                .peek(cat -> cat.getVetBook().setLastVaccination(LocalDate.now()))
+//                .toList();
+//        catList.forEach(System.out::println);
 
         /* задачи с шаурмой */
 
         //TODO найти самую дорогую шаурму
 
+//        Optional<Shawarma> shawarma = shawarmas.stream()
+//                .max(Comparator.comparing(Shawarma::getPrice));
+//        shawarmas.forEach(System.out::println);
+//        System.out.println(shawarma);
+
         //TODO найти самую дешёвую шаурму
+
+//        Optional<Shawarma>shawarma=shawarmas.stream()
+//                .min(Comparator.comparing(Shawarma::getPrice));
+//        System.out.println(shawarma);
 
         //TODO вычислить среднюю цену шаурмы
 
+//        OptionalDouble cost = shawarmas.stream()
+//                .mapToInt(Shawarma::getPrice)
+//                .average();
+//
+//        System.out.println(cost);
+
         //TODO найти шаурму, у которой самый долгий срок годности
 
+//        Optional<Shawarma>shawarma=shawarmas.stream()
+//                .max(Comparator.comparing(Shawarma::getExpiredTime));
+//        System.out.println(shawarma);
+//
+//        Optional<Shawarma>shawarma1=shawarmas.stream()
+//                .min(Comparator.comparing(Shawarma::getExpiredTime));
+//        System.out.println(shawarma1);
+
         //TODO сгруппировать шаурму по её типу
+//        Map<String,List<Shawarma>>shawarmaMap=shawarmas.stream()
+//                .collect(Collectors.groupingBy(Shawarma::getShawarmaType));
+//
+//        shawarmaMap.entrySet().forEach(System.out::println);
 
         //TODO найти самый популярный вкус
 
+//        Map<String, Long> listMap = shawarmas.stream()
+//                .collect(Collectors.groupingBy(Shawarma::getShawarmaType,Collectors.counting()));
+//
+//        String taste = listMap.entrySet().stream()
+//                .max(Comparator.comparing(Map.Entry::getValue))
+//                .map(Map.Entry::getKey)
+//                .orElse("None");
+//        System.out.println(taste);
+
         //TODO снизить цену всех шаурм на 10%
+
+        List<Shawarma> list = shawarmas.stream()
+                .peek(x -> x.setPrice((int) (x.getPrice() * 0.9)))
+                .toList();
+
+        list.forEach(System.out::println);
     }
 }
