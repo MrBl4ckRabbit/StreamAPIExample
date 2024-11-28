@@ -281,10 +281,10 @@ public class Main {
 
         //TODO снизить цену всех шаурм на 10%
 
-        List<Shawarma> list = shawarmas.stream()
-                .peek(x -> x.setPrice((int) (x.getPrice() * 0.9)))
-                .toList();
-
-        list.forEach(System.out::println);
+//        List<Shawarma> list = shawarmas.stream()
+//                .peek(x -> x.setPrice((int) (x.getPrice() * 0.9)))
+//                .toList();
+//
+//        list.forEach(System.out::println);
     }
 }
