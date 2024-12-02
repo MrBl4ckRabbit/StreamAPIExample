@@ -10,6 +10,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class Main {
@@ -19,7 +20,10 @@ public class Main {
         List<Cat> cats = new CatListGenerator().randomCats(1000);
         List<Shawarma> shawarmas = new ShawarmaMaker().generateShawarma(50);
 //        cats.stream()
+//                .limit(3)
 //                .forEach(System.out::println);
+//        System.out.println("*************************");
+
 
 //        //TODO вывести всех котов с определённым окрасом
 //        cats.stream()
@@ -81,6 +85,10 @@ public class Main {
 //        Map<String, List<Cat>> catMap1 = cats.stream()
 //                .collect(Collectors.groupingBy(Cat::getColor));
 //
+//        for (Map.Entry<String, List<Cat>> entry : catMap1.entrySet()) {
+//            System.out.println(entry);
+//        }
+
 //        catMap1.entrySet().forEach(System.out::println);
 //
 //        Map<String, List<Cat>> catMap2 = cats.stream()
@@ -97,13 +105,14 @@ public class Main {
 
 //        String[] colors = new CatListGenerator().getColors();
 //
-//        cats.forEach(cat -> {
-//            String randomColor = colors[ThreadLocalRandom.current().nextInt(colors.length)];
+//        cats.stream().limit(1)
+//                .forEach(cat -> {
+//                    String randomColor = colors[ThreadLocalRandom.current().nextInt(colors.length)];
 //
-//            cat.setColor(randomColor);
-//        });
-//        cats.forEach(System.out::println);
-//
+//                    cat.setColor(randomColor);
+//                });
+//        cats.stream().limit(1).forEach(System.out::println);
+
 //        cats.stream()
 //                .map(cat -> {
 //                    String randomColor = colors[ThreadLocalRandom.current().nextInt(colors.length)];
@@ -263,10 +272,11 @@ public class Main {
 //        System.out.println(shawarma1);
 
         //TODO сгруппировать шаурму по её типу
-//        Map<String,List<Shawarma>>shawarmaMap=shawarmas.stream()
+//        Map<String, List<Shawarma>> shawarmaMap = shawarmas.stream()
 //                .collect(Collectors.groupingBy(Shawarma::getShawarmaType));
 //
 //        shawarmaMap.entrySet().forEach(System.out::println);
+
 
         //TODO найти самый популярный вкус
 
@@ -286,5 +296,7 @@ public class Main {
 //                .toList();
 //
 //        list.forEach(System.out::println);
+
+
     }
 }
