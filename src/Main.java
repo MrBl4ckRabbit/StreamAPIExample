@@ -297,6 +297,38 @@ public class Main {
 //
 //        list.forEach(System.out::println);
 
+        List<String> people = new ArrayList<>();
+        people.add("Misha");
+        people.add("Dima");
+        people.add("Dima");
+        people.add("Rustam");
+        people.add("Rustam");
+        people.add("Rustam");
+        people.add("Vanya");
+        people.add("Ira");
+        people.add("Marina");
 
+        Set<String> setList = new HashSet<>(people);
+
+
+//        people.stream()
+//                .distinct()
+//                .forEach(System.out::println);
+
+
+        people.stream()
+                .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
+                .entrySet().stream()
+                .max(Comparator.comparing(Map.Entry::getValue));
+
+
+        people.stream()
+                .collect(Collectors.groupingBy(x -> x, Collectors.counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .limit(2)
+                .forEach(System.out::println);
     }
 }
+
+
