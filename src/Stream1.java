@@ -66,11 +66,19 @@ public class Stream1 {
     }
 
     public Integer getAverageAgeByOrganization(List<Group> groups) {
-        return null;
+        return (int) groups.stream()
+                .flatMap(group -> group.getDepartment().stream())
+                .mapToInt(User::getAge)
+                .average()
+                .orElse(0.0);
     }
 
     public Integer getAverageSalaryByOrganization(List<Group> groups) {
-        return null;
+        return (int) groups.stream()
+                .flatMap(group -> group.getDepartment().stream())
+                .mapToInt(User::getSalary)
+                .average()
+                .orElse(0.0);
     }
 
 }
