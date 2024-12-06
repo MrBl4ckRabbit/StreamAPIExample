@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Stream1 {
+public class Stream_1 {
     private List<User> usersIt = Arrays.asList(
 
             new User(1, "john", "doe", 23, 3500),

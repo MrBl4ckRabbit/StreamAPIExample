@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class StreamExample {
+public class StreamExample_1 {
     public static void main(String[] args) {
         IntStream.of(120, 140, 620, 32, 55)
                 .filter(x -> x < 300)

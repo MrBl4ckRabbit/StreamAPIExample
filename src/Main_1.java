@@ -25,7 +25,7 @@ class Employee {
     }
 }
 
-public class Main1 {
+public class Main_1 {
     public static void main(String[] args) {
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee("John", 30, 5000));
@@ -34,9 +34,9 @@ public class Main1 {
         employees.add(new Employee("Eva", 35, 5500));
         employees.add(new Employee("Mike", 25, 4500));
 
-
+//sorting by years and salaries
         employees.stream()
-                .collect(Collectors.groupingBy(Employee::getAge, Collectors.summarizingDouble(Employee::getSalary)))
+                .collect(Collectors.groupingBy(Employee::getAge, Collectors.summingDouble(Employee::getSalary)))
                 .entrySet()
                 .forEach(System.out::println);
 
