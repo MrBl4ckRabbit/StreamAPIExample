@@ -1,0 +1,5 @@
+Java is a high-level programming language.
+Java is object-oriented. Java is platform-independent.
+Concurrency in Java allows multiple threads to run concurrently.
+Stream API in Java is used for functional-style operations.
+Java has a strong memory management mechanism.

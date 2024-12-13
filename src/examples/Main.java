@@ -12,10 +12,12 @@ public class Main {
 //                new User("Jane", 30, 4000),
 //                new User("Jack", 25, 4500));
 //
-//        List<User> users = Arrays.asList(
-//                new User("John", 23),
-//                new User("Jane", 30),
-//                new User("Jack", 25));
+        List<User> users = Arrays.asList(
+                new User("John", 23),
+                new User("Jane", 30),
+                new User("Jack", 23),
+                new User("Doe", 30));
+
 
         List<User> usersNAme = Arrays.asList(new User("John"),
                 new User("Jane"),
@@ -24,10 +26,30 @@ public class Main {
                 new User("Daisy"));
 
 
-        Map<Character, List<User>> collect = usersNAme.stream()
-                .collect(Collectors.groupingBy(s -> s.getName().charAt(0)));
+        List<Person> people = Arrays.asList(
+                new Person("John", Arrays.asList("reading", "swimming")),
+                new Person("Jane", Arrays.asList("cycling", "hiking")),
+                new Person("Jack", Arrays.asList("gaming", "coding")));
 
-        collect.entrySet().forEach(System.out::println);
+
+
+//        List<String> list = people.stream()
+//                .flatMap(person -> person.getHobbies().stream())
+//                .toList();
+//
+//
+//
+//        list.forEach(System.out::println);
+//        Map<Integer, List<User>> collect = users.stream()
+//                .collect(Collectors.groupingBy(User::getAge));
+//
+//        collect.entrySet().forEach(System.out::println);
+
+
+//        Map<Character, List<User>> collect = usersNAme.stream()
+//                .collect(Collectors.groupingBy(s -> s.getName().charAt(0)));
+//
+//        collect.entrySet().forEach(System.out::println);
 
 
 //        Map<Integer, List<User>> collect = users.stream()

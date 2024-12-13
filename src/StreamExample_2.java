@@ -3,14 +3,101 @@ import java.util.stream.Collectors;
 
 public class StreamExample_2 {
     public static void main(String[] args) {
-        List<String> strings = Arrays.asList("apple", "banana", "avocado", "blueberry", "apricot");
+        List<String> strings = Arrays.asList("apple", "banana", "avocado", "blueberry", "apricot", "watermelon");
 
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-        Map<Character, List<String>> collect = strings.stream()
-                .collect(Collectors.groupingBy(s -> s.charAt(0)));
+        List<List<String>> listOfLists = Arrays.asList(
+                Arrays.asList("apple", "banana"),
+                Arrays.asList("cherry", "date"),
+                Arrays.asList("fig", "grape"));
 
-        collect.entrySet().forEach(System.out::println);
+        List<String> sentences = Arrays.asList("This is a test", "Stream API is powerful", "FlatMap is useful");
+
+        List<String> lines = Arrays.asList("Java is awesome", "I love programming", "Stream API is powerful");
+
+        List<int[]> listOfArrays = Arrays.asList(
+                new int[]{1, 2, 3},
+                new int[]{4, 5, 6},
+                new int[]{7, 8, 9});
+
+        List<Integer> list = strings.stream()
+                .map(String::length)
+                .toList();
+
+        System.out.println(list);
+
+//        Map<Integer, List<String>> collect = strings.stream()
+//                .collect(Collectors.groupingBy(String::length));
+//
+//        collect.entrySet().forEach(System.out::println);
+
+//        Optional<Integer> max = numbers.stream()
+//                .max(Comparator.naturalOrder());
+//
+//        System.out.println(max);
+
+//        long count = lines.stream()
+//                .flatMap(x -> Arrays.stream(x.split("\\s+")))
+//                .count();
+//
+//        System.out.println(count);
+
+//        String collect = strings.stream()
+//                .collect(Collectors.joining(","));
+//        System.out.println(collect);
+
+//        List<Integer> list = numbers.stream()
+//                .filter(x -> x % 2 == 0)
+//                .toList();
+//
+//        Map<Boolean, List<Integer>> collect = numbers.stream()
+//                .collect(Collectors.groupingBy(x -> x % 2 == 0));
+//
+//        collect.entrySet().forEach(System.out::println);
+//
+//        list.forEach(System.out::println);
+
+//        List<Integer> list = listOfArrays.stream()
+//                .flatMapToInt(Arrays::stream)
+//                .boxed()
+//                .toList();
+//
+//        list.forEach(System.out::println);
+
+//        List<String> list = sentences.stream()
+//                .flatMap(s -> Arrays.stream(s.split(" ")))
+//                .toList();
+//
+//        list.forEach(System.out::println);
+
+//        List<String> list = listOfLists.stream()
+//                .flatMap(List::stream)
+//                .toList();
+//listOfLists.forEach(System.out::println);
+//        list.forEach(System.out::println);
+
+
+//        Map<String, Integer> collect = strings.stream()
+//                .collect(Collectors.toMap(s -> s, String::length));
+//
+//        collect.entrySet().forEach(System.out::println);
+
+//       String max = strings.stream()
+//                .max(Comparator.comparing(String::length))
+//               .orElse(" ");
+//
+//        System.out.println(max);
+//        Map<Integer, List<String>> collect = strings.stream()
+//                .collect(Collectors.groupingBy(String::length));
+//
+//        collect.entrySet().forEach(System.out::println);
+
+
+//        Map<Character, List<String>> collect = strings.stream()
+//                .collect(Collectors.groupingBy(s -> s.charAt(0)));
+//
+//        collect.entrySet().forEach(System.out::println);
 
 
 //        Map<Boolean, List<Integer>> collect = numbers.stream()
