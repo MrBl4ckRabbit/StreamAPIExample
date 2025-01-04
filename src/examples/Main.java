@@ -31,6 +31,35 @@ public class Main {
                 new Person("Jane", Arrays.asList("cycling", "hiking")),
                 new Person("Jack", Arrays.asList("gaming", "coding")));
 
+        List<Student> students = Arrays.asList(
+                new Student("Alice", "Math"),
+                new Student("Bob", "Math"),
+                new Student("Charlie", "Physics"));
+
+     List<Product> products = Arrays.asList(
+             new Product("Laptop", "Electronics"),
+             new Product("Shirt", "Clothing"),
+             new Product("Phone", "Electronics"));
+
+        Map<String, List<Product>> collect = products.stream()
+                .collect(Collectors.groupingBy(Product::getCategory));
+
+        collect.entrySet().forEach(System.out::println);
+
+//        Map<String, List<Student>> collect = students.stream()
+//                .collect(Collectors.groupingBy(Student::getCourse));
+//
+//        collect.entrySet().forEach(System.out::println);
+
+//        List<Department> departments = Arrays.asList(
+//                new Department(Arrays.asList("Alice", "Bob")),
+//                new Department(Arrays.asList("Charlie", "David")));
+//
+//        List<String> list = departments.stream()
+//                .flatMap(department -> department.getEmployees().stream())
+//                .toList();
+//
+//        list.forEach(System.out::println);
 
 
 //        List<String> list = people.stream()

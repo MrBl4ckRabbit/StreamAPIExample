@@ -16,16 +16,35 @@ public class StreamExample_2 {
 
         List<String> lines = Arrays.asList("Java is awesome", "I love programming", "Stream API is powerful");
 
+        List<List<Integer>> listOfListsAsNumbers = Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 5), Arrays.asList(6));
+
         List<int[]> listOfArrays = Arrays.asList(
                 new int[]{1, 2, 3},
                 new int[]{4, 5, 6},
                 new int[]{7, 8, 9});
 
-        List<Integer> list = strings.stream()
-                .map(String::length)
+        /*Дан список списков целых чисел. Используя flatMap, создать один список, содержащий все числа из всех списков.
+
+        List<Integer> list = listOfListsAsNumbers.stream()
+                .flatMap(List::stream)
                 .toList();
 
-        System.out.println(list);
+        list.forEach(System.out::println);*/
+
+        /*Дан список строк, каждая из которых содержит несколько слов,
+        разделенных пробелами. Используя flatMap, создать список всех слов.
+
+        List<String> list = sentences.stream()
+                .flatMap(s -> Arrays.stream(s.split(" ")))
+                .toList();
+
+        list.forEach(System.out::println);*/
+
+//        List<Integer> list = strings.stream()
+//                .map(String::length)
+//                .toList();
+//
+//        System.out.println(list);
 
 //        Map<Integer, List<String>> collect = strings.stream()
 //                .collect(Collectors.groupingBy(String::length));
