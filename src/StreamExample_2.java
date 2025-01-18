@@ -16,29 +16,35 @@ public class StreamExample_2 {
 
         List<String> lines = Arrays.asList("Java is awesome", "I love programming", "Stream API is powerful");
 
-        List<List<Integer>> listOfListsAsNumbers = Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 5), Arrays.asList(6));
+        List<List<Integer>> listOfListsAsNumbers = Arrays.asList(
+                Arrays.asList(1, 2, 3),
+                Arrays.asList(4, 5),
+                Arrays.asList(6,7));
 
         List<int[]> listOfArrays = Arrays.asList(
                 new int[]{1, 2, 3},
                 new int[]{4, 5, 6},
                 new int[]{7, 8, 9});
 
-        /*Дан список списков целых чисел. Используя flatMap, создать один список, содержащий все числа из всех списков.
+        //Дан список списков целых чисел. Используя flatMap, создать один список, содержащий все числа из всех списков.
 
-        List<Integer> list = listOfListsAsNumbers.stream()
-                .flatMap(List::stream)
-                .toList();
 
-        list.forEach(System.out::println);*/
+
+
+//        List<Integer> list = listOfListsAsNumbers.stream()
+//                .flatMap(List::stream)
+//                .toList();
+//
+//        list.forEach(System.out::println);
 
         /*Дан список строк, каждая из которых содержит несколько слов,
-        разделенных пробелами. Используя flatMap, создать список всех слов.
+        разделенных пробелами. Используя flatMap, создать список всех слов.*/
 
         List<String> list = sentences.stream()
-                .flatMap(s -> Arrays.stream(s.split(" ")))
+                .flatMap(s -> Arrays.stream(s.split(",")))
                 .toList();
 
-        list.forEach(System.out::println);*/
+        list.forEach(System.out::println);
 
 //        List<Integer> list = strings.stream()
 //                .map(String::length)
@@ -62,8 +68,10 @@ public class StreamExample_2 {
 //
 //        System.out.println(count);
 
+
+
 //        String collect = strings.stream()
-//                .collect(Collectors.joining(","));
+//                .collect(Collectors.joining("HI"));
 //        System.out.println(collect);
 
 //        List<Integer> list = numbers.stream()
@@ -138,13 +146,13 @@ public class StreamExample_2 {
 //
 //        System.out.println("**************************");
 //
-//        List<String> sentences = Arrays.asList("This is a test", "This test is only a test", "Hello world");
-//        var uniqueSentences = sentences.stream()
+//        List<String> sentences1 = Arrays.asList("This is a test", "This test is only a test", "Hello world");
+//        var uniqueSentences = sentences1.stream()
 //                .flatMap(s -> Arrays.stream(s.split(" ")))
 //                .distinct()
 //                .collect(Collectors.joining(" "));
 //        System.out.println(uniqueSentences);
-//
+////
 //        System.out.println("**************************");
 //
 //        List<Integer> numbers = Arrays.asList(3, 5, 7, 2, 8, 6, 4);

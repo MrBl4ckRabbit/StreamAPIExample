@@ -51,15 +51,15 @@ public class Main {
 //
 //        collect.entrySet().forEach(System.out::println);
 
-//        List<Department> departments = Arrays.asList(
-//                new Department(Arrays.asList("Alice", "Bob")),
-//                new Department(Arrays.asList("Charlie", "David")));
+        List<Department> departments = Arrays.asList(
+                new Department(Arrays.asList("Alice", "Bob")),
+                new Department(Arrays.asList("Charlie", "David")));
 //
-//        List<String> list = departments.stream()
-//                .flatMap(department -> department.getEmployees().stream())
-//                .toList();
-//
-//        list.forEach(System.out::println);
+        List<String> list = departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .toList();
+
+        list.forEach(System.out::println);
 
 
 //        List<String> list = people.stream()

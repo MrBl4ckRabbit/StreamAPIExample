@@ -32,7 +32,7 @@ public class Main {
 //                .forEach(System.out::println);
 
         //TODO найти кота с конкретным именем и возрастом
-//        Optional<Cat> cat = cats.stream()
+//        cats.stream()
 //                .filter(x -> x.getName().equals("Вася") && x.getAge() == 3)
 //                .findAny();
 //
@@ -82,8 +82,8 @@ public class Main {
 
         //TODO сгруппировать котов по породе\окрасу\возрасту
 
-//        Map<String, List<Cat>> catMap1 = cats.stream()
-//                .collect(Collectors.groupingBy(Cat::getColor));
+        Map<String, List<Cat>> catMap1 = cats.stream()
+                .collect(Collectors.groupingBy(Cat::getColor));
 //
 //        for (Map.Entry<String, List<Cat>> entry : catMap1.entrySet()) {
 //            System.out.println(entry);
