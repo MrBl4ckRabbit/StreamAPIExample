@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamExample_2 {
     public static void main(String[] args) {
@@ -19,7 +20,7 @@ public class StreamExample_2 {
         List<List<Integer>> listOfListsAsNumbers = Arrays.asList(
                 Arrays.asList(1, 2, 3),
                 Arrays.asList(4, 5),
-                Arrays.asList(6,7));
+                Arrays.asList(6, 7));
 
         List<int[]> listOfArrays = Arrays.asList(
                 new int[]{1, 2, 3},
@@ -29,7 +30,159 @@ public class StreamExample_2 {
         //Дан список списков целых чисел. Используя flatMap, создать один список, содержащий все числа из всех списков.
 
 
+        OptionalDouble average = listOfArrays.stream()
+                .flatMapToInt(Arrays::stream)
+                .average();
+        System.out.println(average);
+//        listOfArrays.stream()
+//                .flatMapToInt(Arrays::stream)
+//                .filter(n -> n % 2 == 0)
+//                .forEach(System.out::println);
+//        listOfArrays.stream()
+//                .flatMapToInt(Arrays::stream)
+//                .boxed()
+//                .forEach(System.out::println);
+//        OptionalInt max = listOfListsAsNumbers.stream()
+//                .flatMapToInt(list -> list.stream().mapToInt(Integer::intValue))
+//                .max();
+//        System.out.println(max);
+//        int sum = listOfListsAsNumbers.stream()
+//                .flatMapToInt(list -> list.stream().mapToInt(Integer::intValue))
+//                .sum();
+//        System.out.println(sum);
+//        listOfListsAsNumbers.stream()
+//                .flatMap(List::stream)
+//                .forEach(System.out::println);
 
+//        Map<String, Long> collect = lines.stream()
+//                .flatMap(s -> Arrays.stream(s.split(" ")))
+//                .collect(Collectors.groupingBy(
+//                        String::toLowerCase,
+//                        Collectors.counting()
+//                ));
+//        collect.entrySet().forEach(System.out::println);
+//        long count = lines.stream()
+//                .flatMapToInt(String::chars)
+//                .filter(c -> c != ' ')
+//                .count();
+//
+//        System.out.println(count);
+//        lines.stream()
+//                .filter(s -> s.contains("is"))
+//                .forEach(System.out::println);
+//        Optional<String> max = sentences.stream()
+//                .flatMap(s -> Arrays.stream(s.split(" ")))
+//                .max(Comparator.comparing(String::length));
+//
+//        System.out.println(max);
+//        Set<String> collect = sentences.stream()
+//                .flatMap(s -> Arrays.stream(s.split(" ")))
+//                .collect(Collectors.toSet());
+//        collect.forEach(System.out::println);
+//        long count = sentences.stream()
+//                .flatMap(s -> Arrays.stream(s.split(" ")))
+//                .count();
+//        System.out.println(count);
+//        Map<Character, List<String>> collect = listOfLists.stream()
+//                .flatMap(List::stream)
+//                .collect(Collectors.groupingBy(s -> s.charAt(0)));
+//
+//        collect.entrySet().forEach(System.out::println);
+//        listOfLists.stream()
+//                .flatMap(List::stream)
+//                .filter(s -> s.length() > 4)
+//                .forEach(System.out::println);
+//        listOfLists.stream()
+//                .flatMap(List::stream)
+//                .forEach(System.out::println);
+//        Map<Boolean, List<Integer>> collect = numbers.stream()
+//                .collect(Collectors.groupingBy(n -> n % 2 == 0));
+//
+//        collect.entrySet().forEach(System.out::println);
+//        int sum = numbers.stream()
+//                .mapToInt(n -> n * n)
+//                .sum();
+//        System.out.println(sum);
+
+//        numbers.stream()
+//                .filter(n -> n % 2 == 0)
+//                .map(n -> n * 2)
+//                .forEach(System.out::println);
+//        Optional<String> max = strings.stream()
+//                .filter(s -> s.startsWith("a"))
+//                .max(Comparator.comparing(String::length));
+//
+//        System.out.println(max);
+//        strings.stream()
+//                .map(String::length)
+//                .forEach(System.out::println);
+//        strings.stream()
+//                .filter(s->s.startsWith("a"))
+//                .forEach(System.out::println);
+//        lines.stream()
+//                .map(String::toUpperCase)
+//                .forEach(System.out::println);
+//        lines.stream()
+//                .filter(s -> s.contains("Stream"))
+//                .forEach(System.out::println);
+//        sentences.stream()
+//                .flatMap(s -> Arrays.stream(s.split(" ")))
+//                .filter(s -> s.startsWith("i"))
+//                .forEach(System.out::println);
+//        List<String> list = sentences.stream()
+//                .flatMap(s -> Arrays.stream(s.split(" ")))
+//                .toList();
+//        list.forEach(System.out::println);
+//        listOfLists.stream()
+//                .flatMap(List::stream)
+//                .filter(s -> s.contains("a"))
+//                .forEach(System.out::println);
+//        listOfLists.stream()
+//                .flatMap(List::stream)
+//                .forEach(System.out::println);
+//        List<Integer> list = numbers.stream()
+//                .map(x -> x * x)
+//                .toList();
+//        list.forEach(System.out::println);
+//        int sum = numbers.stream()
+//                .filter(n -> n % 2 == 0)
+//                .mapToInt(Integer::intValue)
+//                .sum();
+//        System.out.println(sum);
+//        strings.stream()
+//                .filter(s -> s.length() > 6)
+//                .forEach(System.out::println);
+//        strings.stream()
+//                .filter(s -> s.startsWith("a"))
+//                .map(String::toUpperCase)
+//                .forEach(System.out::println);
+
+//        strings.forEach(System.out::println);
+//        String collect = strings.stream()
+//                .collect(Collectors.joining(", "));
+//        System.out.println(collect);
+//        Map<String, Integer> collect = strings.stream()
+//                .collect(Collectors.toMap(s -> s, String::length));
+//        System.out.println(collect);
+
+//        Map<Integer, List<String>> collect = strings.stream()
+//                .collect(Collectors.groupingBy(String::length));
+//        collect.entrySet().forEach(System.out::println);
+//        Optional<Integer> max = numbers.stream()
+//                .max(Integer::compareTo);
+//        System.out.println(max);
+//        int sum = numbers.stream()
+//                .mapToInt(Integer::intValue)
+//                .sum();
+//        System.out.println(sum);
+//        strings.stream()
+//                .map(s -> s.toUpperCase())
+//                .forEach(System.out::println);
+
+//        strings.stream()
+//                .filter(s -> s.length()>7)
+//                .sorted()
+//                .forEach(System.out::println);
 
 //        List<Integer> list = listOfListsAsNumbers.stream()
 //                .flatMap(List::stream)
@@ -40,11 +193,11 @@ public class StreamExample_2 {
         /*Дан список строк, каждая из которых содержит несколько слов,
         разделенных пробелами. Используя flatMap, создать список всех слов.*/
 
-        List<String> list = sentences.stream()
-                .flatMap(s -> Arrays.stream(s.split(",")))
-                .toList();
-
-        list.forEach(System.out::println);
+//        List<String> list = sentences.stream()
+//                .flatMap(s -> Arrays.stream(s.split(",")))
+//                .toList();
+//
+//        list.forEach(System.out::println);
 
 //        List<Integer> list = strings.stream()
 //                .map(String::length)
@@ -67,7 +220,6 @@ public class StreamExample_2 {
 //                .count();
 //
 //        System.out.println(count);
-
 
 
 //        String collect = strings.stream()

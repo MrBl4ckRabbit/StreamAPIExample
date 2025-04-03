@@ -26,10 +26,10 @@ public class Main {
 
 
 //        //TODO вывести всех котов с определённым окрасом
-//        cats.stream()
-//                .filter(x->x.getColor().equals("Чёрный"))
-//                .distinct()
-//                .forEach(System.out::println);
+        cats.stream()
+                .filter(x->x.getColor().equals("Чёрный"))
+                .distinct()
+                .forEach(System.out::println);
 
         //TODO найти кота с конкретным именем и возрастом
 //        cats.stream()
